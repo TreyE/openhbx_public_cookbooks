@@ -1,0 +1,8 @@
+require_recipe "openhbx_access::default"
+
+openhbx_access_user "trey.evans" do
+  other_groups ["sysops", "sshusers"]
+  ssh_keys({
+    "tevans@Treys-MacBook-Pro.local" => "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC1brS//RULszvzyKuIqIa4lMAxFc8kneVy7vRho0T9LiLxUYjKArryJYBbd7hbzxLzV4NUI92qnJeW68bGXQ3AAEy69LAMx/awAIqJbD8x6TdLI12AH9taAcbyi+tfO807Nu1KZY9kDPQNoQPN25lmIl1UETY1aONJkHuSq6xUtVoAWWKNdlTTe5Sr0jA4unem/HOmKVkDNoxo6jB4rqwzrisf3Z1Ht9hb4HKzVi3UfSDKDGn4eR1mlb9X+W5kEVRU/6YFIyI6bKG0g8bcWiJEA8F1NdcHDK9ZdlrTRDpSpCtexCtpGZPb+9t1u34cHahUSteqolWioQMq1x7GH8Q8x6f4nwn0IpLunav4C3qg/qbQpfD3YVXpptwoGKNa1zmZk+UYXM6MMo7U5XMleHoYtWFiN6T4teqNLJ/gMiHhxl1UEiR26OIYuI4LL+1Va4gKWJd2psBPFxIh/aYhIRHf/tTFSEghCi0Nk1UjpiY0YNfxBNRRJOpsa/+ePdfk197plB0SbvH1790MD18eegWRW3PKTeGUeMoqSfSNCr35SbT2mWhZ/L+JD5RtaRs9o70BU+y2AgpREHWIhG8zJin3N6Ht1RGQBRBIQ7jDXv6L5ajuLV7P6WpNwmIoZ0SrPWQZGZ6WfiIvhJDGW0Q/116AntzgF9LdPkjHNJJWugTRkQ=="
+  })
+end
