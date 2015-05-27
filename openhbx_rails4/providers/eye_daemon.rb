@@ -11,8 +11,9 @@ action :install do
   template out_path do
     cookbook "openhbx_rails4"
     source "eye_daemon.erb"
+    user "root"
     group "root"
-    mode "0755"
+    mode "0754"
     variables({
       :service_name => d_name,
       :user_name => user_name,
