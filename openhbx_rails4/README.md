@@ -1,27 +1,19 @@
 openhbx_rails4 Cookbook
 ==============================
-TODO: Enter the cookbook description here.
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+Provides LWRP for managing common Rails4 setup tasks.
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
-
-e.g.
-#### packages
-- `toaster` - openhbx_rails4 needs toaster to brown your bagel.
+Base chef.
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
 
-e.g.
 #### openhbx_rails4::default
 <table>
   <tr>
-    <th>Key</th>
+    <th>Attribute</th>
     <th>Type</th>
     <th>Description</th>
     <th>Default</th>

@@ -12,7 +12,7 @@ You may need to choose your group provider, currently Chef::Provider::Group::Gpa
 Attributes
 ----------
 
-#### openhbx_access::user
+#### openhbx_access_user
 <table>
   <tr>
     <th>Attribute</th>
