@@ -36,7 +36,7 @@ Attributes
     <td><tt>ssh_keys</tt></td>
     <td>Hash</td>
     <td>ssh login public keys, as: "(key_name)" => "(key_type) (public key as base64)"</td>
-    <td><tt>{}/tt></td>
+    <td><tt>{}</tt></td>
   </tr>
   <tr>
     <td><tt>provider</tt></td>
