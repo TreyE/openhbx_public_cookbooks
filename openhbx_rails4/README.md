@@ -15,6 +15,39 @@ Attributes
 #### openhbx_rails4_mongoid_yaml
 #### openhbx_rails4_nginx_unicorn
 #### openhbx_rails4_production_environment
+<table>
+  <tr>
+    <th>Attribute</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Required</th>
+  </tr>
+  <tr>
+    <td><tt>configuration_path</tt></td>
+    <td>String</td>
+    <td>path to your rails 'config' directory</td>
+    <td>Required - Name attribute</td>
+  </tr>
+  <tr>
+    <td><tt>templated_name</tt></td>
+    <td>String</td>
+    <td>File name of the production.rb template to use. Relative to YOUR recipe.</td>
+    <td>Required</td>
+  </tr>
+  <tr>
+    <td><tt>file_user</tt></td>
+    <td>String</td>
+    <td>User to whom the rails configuration files belong.</td>
+    <td>Required</td>
+  </tr>
+  <tr>
+    <td><tt>file_group</tt></td>
+    <td>String</td>
+    <td>User to whom the rails configuration files belong.</td>
+    <td>Required</td>
+  </tr>
+</table>
+
 #### openhbx_rails4_secrets_yaml
 <table>
   <tr>
