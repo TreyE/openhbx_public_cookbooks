@@ -72,6 +72,7 @@ PUBLIC CERTIFICATE
 -----END CERTIFICATE-----
 CERTDATA
 end
+```
 
 #### openhbx_rails4_production_environment
 
@@ -83,6 +84,7 @@ openhbx_rails4_production_environment "/var/www/deployments/myapp/shared/config"
   file_group "nginx"
   template_name "production.rb.erb"
 end
+```
 
 #### openhbx_rails4_secrets_yaml
 
@@ -94,3 +96,4 @@ openhbx_rails4_secrets_yaml "/var/www/deployments/myapp/shared/config" do
   file_group "nginx"
   cookie_secret "thesecrethexthingrailslikes"
 end
+```

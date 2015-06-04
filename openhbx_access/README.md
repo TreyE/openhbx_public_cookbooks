@@ -59,3 +59,4 @@ openhbx_access_user "my.user" do
     "my.email@my_laptop" => "ssh-rsa somebase64stuffasastringsometimesendswith=="
   })
 end
+```
