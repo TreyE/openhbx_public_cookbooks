@@ -24,7 +24,7 @@ Attributes
     <td><tt>user_name</tt></td>
     <td>String</td>
     <td>user account name</td>
-    <td><tt>Required - Name Attribute</tt></td>
+    <td>Required - Name Attribute</td>
   </tr>
   <tr>
     <td><tt>other_groups</tt></td>
