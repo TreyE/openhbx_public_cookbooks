@@ -51,9 +51,44 @@ Attributes
 
 Usage
 -----
+
+#### openhbx_rails4_nginx_unicorn
+```ruby
+require_recipe "openhbx_rails4::default"
+
+openhbx_rails4_nginx_unicorn "install nginx and configuration with ssl" do
+  use_ssl true
+  ssl_key_file "myapp.key"
+  ssl_cert_file "myapp.crt"
+  unicorn_application_name "myapp"
+  ssl_private_key <<-PRIVKEY
+-----BEGIN RSA PRIVATE KEY-----
+PRIVATE KEY
+-----END RSA PRIVATE KEY-----
+PRIVKEY
+  ssl_certificate <<-CERTDATA
+-----BEGIN CERTIFICATE-----
+PUBLIC CERTIFICATE
+-----END CERTIFICATE-----
+CERTDATA
+end
+
+#### openhbx_rails4_production_environment
+
+```ruby
+require_recipe "openhbx_rails4::default"
+
+openhbx_rails4_production_environment "/var/www/deployments/myapp/shared/config" do
+  file_user "nginx"
+  file_group "nginx"
+  template_name "production.rb.erb"
+end
+
 #### openhbx_rails4_secrets_yaml
 
 ```ruby
+require_recipe "openhbx_rails4::default"
+
 openhbx_rails4_secrets_yaml "/var/www/deployments/myapp/shared/config" do
   file_user "nginx"
   file_group "nginx"
