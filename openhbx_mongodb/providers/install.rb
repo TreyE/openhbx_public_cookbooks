@@ -33,7 +33,7 @@ action :install do
     source "mongodb.conf.erb"
     user configuration_owner
     group configuration_owner
-    mode "0754"
+    mode "0644"
     variables({
       :log_path => log_path, 
       :db_path => db_path,
