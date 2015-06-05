@@ -1,8 +1,10 @@
 #
 # Cookbook Name:: openhbx_mongodb
-# Recipe:: default
+# Recipe:: install
 #
-# Copyright 2015, YOUR_COMPANY_NAME
+# Copyright 2015, DCHBX
 #
 # All rights reserved - Do Not Redistribute
 #
+
+openhbx_mongodb_install "install mongodb"
