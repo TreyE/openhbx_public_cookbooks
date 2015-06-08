@@ -13,7 +13,7 @@ action :install do
   nginx_config_path = new_resource.nginx_config_path
   config_file_path = ::File.join(nginx_config_path, "nginx.conf")
 
-  package :nginx do
+  package "nginx" do
     action :install
     not_if { ::File.exists?(config_file_path) }
   end
