@@ -27,7 +27,7 @@ action :install do
   end
 
   execute "execute clone of ruby_build repository" do
-    command "su #{user_name} -c \"/bin/bash -l -c 'git clone https://github.com/sstephenson/ruby-build.git  ~/.rbenv/plugins/'\""
+    command "su #{user_name} -c \"/bin/bash -l -c 'git clone https://github.com/sstephenson/ruby-build.git  ~/.rbenv/plugins/ruby-build/'\""
     not_if {::File.exists?("/home/#{user_name}/.rbenv/plugins/ruby-build") }
   end
 
