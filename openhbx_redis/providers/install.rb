@@ -11,7 +11,11 @@ action :install do
     action :create
   end
 
-  rpm_package "remi-release-6*.rpm" do
+  package "jemalloc" do
+    action :install
+  end
+
+  rpm_package "remi-release" do
     source "#{Chef::Config[:file_cache_path]}/remi-release-6.rpm"
     action :install
   end  
