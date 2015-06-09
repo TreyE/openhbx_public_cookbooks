@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: openhbx_mongodb
+# Cookbook Name:: openhbx_rabbitmq
 # Recipe:: default
 #
 # Copyright 2015, YOUR_COMPANY_NAME
