@@ -6,10 +6,10 @@ action :install do
   version = new_resource.version
   redis_pkg = "redis-" + version
 
-  remote_file "/tmp/remi-release-6.rpm" do
-    source "http://rpms.famillecollet.com/enterprise/remi-release-6.rpm"
+  remote_file "/tmp/redis-2.8.rpm" do
+    source "http://rpms.famillecollet.com/enterprise/6.6/remi/x86_64/redis-2.8.19-1.el6.remi.x86_64.rpm"
     #not_if {::File.exists?("/opt/td-agent/usr/bin/td")}
-    notifies :install, "rpm_package[remi]", :immediately
+    notifies :install, "rpm_package[redis-2.8]", :immediately
     retries 2 
   end
 
@@ -17,15 +17,11 @@ action :install do
     action :install
   end
 
-  rpm_package "remi" do
-    source "/tmp/remi-release-6.rpm"
-    only_if {::File.exists?("/tmp/remi-release-6.rpm")}
+  yum_package "redis-2.8" do
+    source "/tmp/redis-2.8.rpm"
+    only_if {::File.exists?("/tmp/redis-2.8.rpm")}
     action :nothing  
   end  
-
-  package redis_pkg do
-    action :install
-  end
 
   service "redis" do
     action [:enable, :start]
