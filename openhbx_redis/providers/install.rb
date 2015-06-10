@@ -7,7 +7,7 @@ action :install do
   redis_pkg = "redis-" + version
 
   remote_file "/tmp/redis-2.8.rpm" do
-    source "http://rpms.famillecollet.com/enterprise/6.6/remi/x86_64/redis-2.8.19-1.el6.remi.x86_64.rpm"
+    source "http://dhsdcassvnsrv01.dhs.dc.gov:9395/drivers/redis-2.8.19-1.el6.remi.x86_64.rpm"
     #not_if {::File.exists?("/opt/td-agent/usr/bin/td")}
     notifies :install, "rpm_package[redis-2.8]", :immediately
     retries 2 
