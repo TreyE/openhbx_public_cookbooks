@@ -32,7 +32,13 @@ action :install do
     #variables({})
   end
 
+  execute "enable rabbitmq_management plugin" do
+    command "/usr/lib/rabbitmq/bin/rabbitmq-plugins enable rabbitmq_management"
+    not_if { File.readlines("/etc/rabbitmq/enabled_plugins").grep(/rabbitmq_management/).any? }
+  end
+
   service "rabbitmq-server" do
     action [:enable, :start]
   end
+
 end
