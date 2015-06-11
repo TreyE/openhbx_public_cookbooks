@@ -14,7 +14,7 @@ remote_file "/tmp/esl-erlang_17.5-1-centos-6_amd64.rpm" do
   retries 2 # We may be redirected to a FTP
 end
 
-rpm_package "erlang" do
+rpm_package "install_erlang" do
   action :nothing
   source "/tmp/esl-erlang_17.5-1-centos-6_amd64.rpm"
   only_if {::File.exists?("/tmp/esl-erlang_17.5-1-centos-6_amd64.rpm")}
