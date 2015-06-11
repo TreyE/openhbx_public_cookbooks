@@ -39,8 +39,12 @@ case "$1" in
         ;;
     reload)
         echo "Reloading eye processes"
-	eval "$CMD quit'"
-	rm -Rf $APP_ROOT/eye/.eye
+        echo "Shutting down eye processes"
+        eval "$CMD stop $APP_NAME'"
+        echo "Shutting down eye daemon"
+        eval "$CMD quit'"
+        rm -Rf $APP_ROOT/eye/.eye
+        echo "Booting eye processes"
         eval "$CMD load'"
         ;;
     restart)
