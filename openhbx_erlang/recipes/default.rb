@@ -9,7 +9,7 @@
 
 remote_file "/tmp/esl-erlang_17.5-1-centos-6_amd64.rpm" do
   source "http://packages.erlang-solutions.com/site/esl/esl-erlang/FLAVOUR_3_general/esl-erlang_17.5-1~centos~6_amd64.rpm"
-  not_if { `which -s erl` }
+  not_if 'which erl'
   notifies :install, "rpm_package[install_erlang]", :immediately
   retries 2 # We may be redirected to a FTP
 end
