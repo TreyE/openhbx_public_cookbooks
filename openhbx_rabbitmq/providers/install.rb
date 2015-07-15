@@ -7,7 +7,7 @@ action :install do
   configuration_owner = new_resource.configuration_owner
 
   config_file = ::File.join(config_path, "rabbitmq.config")
-  def_file = ::File.join(config_path, "definitions.json")
+  def_file = ::File.join(config_path, "hbx_rabbit_definitions.json")
 
   package "rabbitmq-server" do
     action :install
@@ -25,11 +25,14 @@ action :install do
 
   template def_file do
     cookbook "openhbx_rabbitmq"
-    source "definitions.json.erb"
+    source "hbx_rabbit_definitions.json.erb"
     user configuration_owner
     group configuration_owner
     mode "0744"
-    #variables({})
+    variables({
+      :hbx_id => new_resource.hbx_id,
+      :env_name => new_resource.env_name
+    })
   end
 
   execute "enable rabbitmq_management plugin" do
