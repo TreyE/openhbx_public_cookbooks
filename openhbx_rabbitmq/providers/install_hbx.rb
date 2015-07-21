@@ -16,7 +16,7 @@ action :install do
 
   template config_file do
     cookbook "openhbx_rabbitmq"
-    source "rabbitmq.config.erb"
+    source "rabbitmq.config.hbx.erb"
     user configuration_owner
     group configuration_owner
     mode "0744"
@@ -37,7 +37,7 @@ action :install do
 
   execute "enable rabbitmq_management plugin" do
     command "/usr/lib/rabbitmq/bin/rabbitmq-plugins enable rabbitmq_management"
-    not_if { File.readlines("/etc/rabbitmq/enabled_plugins").grep(/rabbitmq_management/).any? }
+    not_if { ::File.exists?("/etc/rabbitmq/enabled_plugins") && ::File.readlines("/etc/rabbitmq/enabled_plugins").grep(/rabbitmq_management/).any? }
   end
 
   service "rabbitmq-server" do

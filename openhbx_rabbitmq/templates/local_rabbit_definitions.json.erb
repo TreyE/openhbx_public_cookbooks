@@ -1,0 +1,57 @@
+{
+    "bindings": [
+        {
+            "arguments": {}, 
+            "destination": "acapi.queue.events.local", 
+            "destination_type": "queue", 
+            "routing_key": "", 
+            "source": "acapi.exchange.events.local", 
+            "vhost": "/"
+        }
+    ], 
+    "exchanges": [
+        {
+            "arguments": {}, 
+            "auto_delete": false, 
+            "durable": true, 
+            "internal": false, 
+            "name": "acapi.exchange.events.local", 
+            "type": "fanout", 
+            "vhost": "/"
+        }
+    ], 
+    "parameters": [], 
+    "permissions": [
+        {
+            "configure": ".*", 
+            "read": ".*", 
+            "user": "guest", 
+            "vhost": "/", 
+            "write": ".*"
+        }
+    ], 
+    "policies": [], 
+    "queues": [
+        {
+            "arguments": {}, 
+            "auto_delete": false, 
+            "durable": true, 
+            "name": "acapi.queue.events.local", 
+            "vhost": "/"
+        }
+    ], 
+    "rabbit_version": "3.5.3", 
+    "users": [
+        {
+            "name": "guest", 
+            "password_hash": "2wN8IHOlXWcynM8FToJKsJgnB4E=", 
+            "tags": "administrator"
+        }
+    ], 
+    "vhosts": [
+        {
+            "name": "/"
+        }
+    ]
+}
+
