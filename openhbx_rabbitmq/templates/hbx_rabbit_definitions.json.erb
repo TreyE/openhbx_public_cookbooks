@@ -338,6 +338,14 @@
         }, 
         {
             "arguments": {}, 
+            "destination": "<%= @hbx_id %>.<%= @env_name %>.q.application.enroll.inbound_events", 
+            "destination_type": "queue", 
+            "routing_key": "info.events.calendar.#", 
+            "source": "<%= @hbx_id %>.<%= @env_name %>.e.topic.events", 
+            "vhost": "/"
+        }, 
+        {
+            "arguments": {}, 
             "destination": "<%= @hbx_id %>.<%= @env_name %>.q.hbx_enterprise.enrollment_digest_employer_employee", 
             "destination_type": "queue", 
             "routing_key": "info.events.employer_employee.initial_enrollment", 
@@ -531,6 +539,13 @@
             "auto_delete": false, 
             "durable": true, 
             "name": "hbx.csv_batch_process", 
+            "vhost": "/"
+        }, 
+        {
+            "arguments": {}, 
+            "auto_delete": false, 
+            "durable": true, 
+            "name": "<%= @hbx_id %>.<%= @env_name %>.q.application.enroll.inbound_events", 
             "vhost": "/"
         }, 
         {
@@ -800,3 +815,4 @@
         }
     ]
 }
+
