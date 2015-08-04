@@ -32,12 +32,20 @@ action :install do
     variables({
       :hbx_id => new_resource.hbx_id,
       :env_name => new_resource.env_name
+      :remote_broker_user => new_resource.remote_broker_user,
+      :remote_broker_pw => new_resource.remote_broker_pw,
+      :remote_broker_host => new_resource.remote_broker_host
     })
   end
 
   execute "enable rabbitmq_management plugin" do
     command "/usr/lib/rabbitmq/bin/rabbitmq-plugins enable rabbitmq_management"
     not_if { ::File.exists?("/etc/rabbitmq/enabled_plugins") && ::File.readlines("/etc/rabbitmq/enabled_plugins").grep(/rabbitmq_management/).any? }
+  end
+
+  execute "enable rabbitmq_shovel plugin" do
+    command "/usr/lib/rabbitmq/bin/rabbitmq-plugins enable rabbitmq_shovel"
+    not_if { ::File.exists?("/etc/rabbitmq/enabled_plugins") && ::File.readlines("/etc/rabbitmq/enabled_plugins").grep(/rabbitmq_shovel/).any? }
   end
 
   service "rabbitmq-server" do

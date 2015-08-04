@@ -2,5 +2,20 @@
 [
   {rabbitmq_management, [
      {load_definitions, "/etc/rabbitmq/local_rabbit_definitions.json"}
-  ]}
+  ]},
+ {rabbitmq_shovel,
+   [{shovels, [
+       {publish_local_events,
+         [
+           {sources,
+             [{brokers, ["amqp://"]}]
+           },
+           {destinations,
+             [{brokers, ["amqp://<%= @remote_broker_user %>:<%= @remote_broker_password %>@<%= @remote_broker_host %>:5672"]}]
+           },
+           {publish_fields, [ {exchange, <<"<%= @hbx_id %>.<%= @env_name %>.e.fanout.events">>}]},
+           {queue, <<"acapi.queue.events.local">>},
+           {ack_mode, on_confirm}
+         ]}
+      ]}]}
 ].
