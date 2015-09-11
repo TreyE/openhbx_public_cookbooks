@@ -20,7 +20,13 @@ action :install do
     user configuration_owner
     group configuration_owner
     mode "0744"
-    #variables({})
+    variables({
+      :hbx_id => new_resource.hbx_id,
+      :env_name => new_resource.env_name,
+      :remote_broker_user => new_resource.remote_broker_user,
+      :remote_broker_password => new_resource.remote_broker_password,
+      :remote_broker_host => new_resource.remote_broker_host
+})
   end
 
   template def_file do
@@ -32,9 +38,6 @@ action :install do
     variables({
       :hbx_id => new_resource.hbx_id,
       :env_name => new_resource.env_name
-      :remote_broker_user => new_resource.remote_broker_user,
-      :remote_broker_pw => new_resource.remote_broker_pw,
-      :remote_broker_host => new_resource.remote_broker_host
     })
   end
 

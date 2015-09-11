@@ -2,6 +2,22 @@
     "bindings": [
         {
             "arguments": {},
+            "destination": "<%= @hbx_id %>.<%= @env_name %>.q.hbx_enterprise.curam_account_lookup",
+            "destination_type": "queue",
+            "routing_key": "account_management.check_existing_account",
+            "source": "<%= @hbx_id %>.<%= @env_name %>.e.direct.requests",
+            "vhost": "/"
+        },
+        {
+            "arguments": {},
+            "destination": "<%= @hbx_id %>.<%= @env_name %>.q.hbx_enterprise.oim_account_creation",
+            "destination_type": "queue",
+            "routing_key": "account_management.create_account",
+            "source": "<%= @hbx_id %>.<%= @env_name %>.e.direct.requests",
+            "vhost": "/"
+        },
+        {
+            "arguments": {},
             "destination": "<%= @hbx_id %>.<%= @env_name %>.q.hbx_enterprise.employer_group_xml",
             "destination_type": "queue",
             "routing_key": "employer.get_by_feins",
@@ -701,6 +717,13 @@
             "arguments": {},
             "auto_delete": false,
             "durable": true,
+            "name": "<%= @hbx_id %>.<%= @env_name %>.q.hbx_enterprise.curam_account_lookup",
+            "vhost": "/"
+        },
+        {
+            "arguments": {},
+            "auto_delete": false,
+            "durable": true,
             "name": "hbx.payment_processor_updates",
             "vhost": "/"
         },
@@ -912,6 +935,13 @@
             "auto_delete": false,
             "durable": true,
             "name": "<%= @hbx_id %>.<%= @env_name %>.q.logging.shop.initial_enrollment",
+            "vhost": "/"
+        },
+        {
+            "arguments": {},
+            "auto_delete": false,
+            "durable": true,
+            "name": "<%= @hbx_id %>.<%= @env_name %>.q.hbx_enterprise.oim_account_creation",
             "vhost": "/"
         }
     ],
